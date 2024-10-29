@@ -13,11 +13,13 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import { Toaster } from "react-hot-toast";
 import { useAuthStore } from "./store/authStore";
 import { useEffect } from "react";
-import { SidebarDemo } from "./components/SidebarDemo";
+
 import Check from "./components/Check";
 import Assignments from "./components/Assignments";
-import SideBar from "./components/SideBar";
+
 import "./App.css";
+import { NavbarDemo } from "./components/Navbar";
+
 // protect routes that require authentication
 const ProtectedRoute = ({ children }) => {
 	const { isAuthenticated, user } = useAuthStore();
@@ -56,7 +58,7 @@ function App() {
 	return (
 		<div
 			className='min-h-screen bg-gradient-to-br
-    from-gray-900 via-green-900 to-emerald-900 flex items-center justify-center relative overflow-hidden'
+    from-gray-900 via-black-900 to-black-800 flex items-center justify-center relative overflow-hidden'
 		>
 			<FloatingShape color='bg-green-500' size='w-64 h-64' top='-5%' left='10%' delay={0} />
 			<FloatingShape color='bg-emerald-500' size='w-48 h-48' top='70%' left='80%' delay={5} />
@@ -67,7 +69,7 @@ function App() {
 					path='/'
 					element={
 						<ProtectedRoute>
-							<SideBar/>
+							<Check/>
 						</ProtectedRoute>
 					}
 				/>
@@ -109,7 +111,6 @@ function App() {
 					path='/check'
 					element={
 						<>
-						<SideBar/>
 						<Check/>
 						</>
 					}
@@ -117,9 +118,9 @@ function App() {
 				<Route
 					path='/assignments'
 					element={
-						<SidebarDemo>
+						<>
 							<Assignments/>
-						</SidebarDemo>
+						</>
 					}
 				/>
 				{/* catch all routes */}

@@ -5,7 +5,7 @@ import { HeroParallaxDemo } from './HeroParallaxDemo'
 const Check = () => {
   return (
     <div>
-      <NavbarDemo/>
+      
       <HeroParallaxDemo/>
     </div>
   )

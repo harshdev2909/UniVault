@@ -19,6 +19,7 @@ import Assignments from "./components/Assignments";
 
 import "./App.css";
 import { NavbarDemo } from "./components/Navbar";
+import Notes from "./components/Notes";
 
 // protect routes that require authentication
 const ProtectedRoute = ({ children }) => {
@@ -57,18 +58,15 @@ function App() {
 
 	return (
 		<div
-			className='min-h-screen bg-gradient-to-br
-    from-gray-900 via-black-900 to-black-800 flex items-center justify-center relative overflow-hidden'
+			className="bg-black"
 		>
-			<FloatingShape color='bg-green-500' size='w-64 h-64' top='-5%' left='10%' delay={0} />
-			<FloatingShape color='bg-emerald-500' size='w-48 h-48' top='70%' left='80%' delay={5} />
-			<FloatingShape color='bg-lime-500' size='w-32 h-32' top='40%' left='-10%' delay={2} />
-
+			
 			<Routes>
 				<Route
 					path='/'
 					element={
 						<ProtectedRoute>
+							<NavbarDemo/>
 							<Check/>
 						</ProtectedRoute>
 					}
@@ -116,10 +114,10 @@ function App() {
 					}
 				/>
 				<Route
-					path='/assignments'
+					path='/notes'
 					element={
 						<>
-							<Assignments/>
+							<Notes/>
 						</>
 					}
 				/>

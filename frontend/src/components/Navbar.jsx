@@ -24,7 +24,7 @@ function Navbar({
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Notes">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/web-dev">B.Tech 1st </HoveredLink>
+            <HoveredLink to="/notes">B.Tech 1st </HoveredLink>
             <HoveredLink href="/interface-design">B.Tech 2nd </HoveredLink>
             {/* <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
             <HoveredLink href="/branding">Branding</HoveredLink> */}

@@ -3,41 +3,23 @@ import { NavbarDemo } from './Navbar'
 import { motion } from "framer-motion";
 import { LampContainer } from "../components/ui/lamp";
 import { CardSpotlight } from "./ui/card-spotlight";
+import { WavyBackground } from './ui/wavy-background';
   
 const Notes = () => {
   return (
-    <div>
+    <div className='m-10'>
         <NavbarDemo/>
-        <LampContainer>
-      <motion.h1
-        initial={{ opacity: 0.5, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.3,
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
-      ></motion.h1>
-    </LampContainer>
-    <CardSpotlight className="h-96 w-96">
+    <WavyBackground className="max-w-4xl mx-auto pb-40">
+    <CardSpotlight className="h-56 w-96">
       <p className="text-xl font-bold relative z-20 mt-2 text-white">
-        Authentication steps
+        Digital Electronics
       </p>
-      <div className="text-neutral-200 mt-4 relative z-20">
-        Follow these steps to secure your account:
-        <ul className="list-none  mt-2">
-          <Step title="Enter your email address" />
-          <Step title="Create a strong password" />
-          <Step title="Set up two-factor authentication" />
-          <Step title="Verify your identity" />
-        </ul>
-      </div>
+      
       <p className="text-neutral-300 mt-4 relative z-20 text-sm">
-        Ensuring your account is properly secured helps protect your personal
-        information and data.
+        It includes notes of Unit 1st and 2nd.
       </p>
     </CardSpotlight>
+    </WavyBackground>
     </div>
   )
 }

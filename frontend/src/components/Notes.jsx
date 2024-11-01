@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavbarDemo } from './Navbar'
 import { motion } from "framer-motion";
-import { LampContainer } from "../components/ui/lamp";
 import { CardSpotlight } from "./ui/card-spotlight";
 import { WavyBackground } from './ui/wavy-background';
   
@@ -25,24 +24,6 @@ const Notes = () => {
       </button>
       <button className="w-40 h-10 rounded-xl bg-white text-black border border-black  text-sm relative z-20 mt-8">
         Download syllabus
-      </button>
-     
-    </CardSpotlight>
-    <CardSpotlight className="h-56 w-76">
-      <p className="text-xl font-bold relative z-20 mt-2 text-white">
-        Digital Electronics
-      </p>
-      
-      <p className="text-neutral-300 mt-4 relative z-20 text-sm">
-        It includes notes of Unit 3rd and 4th.
-      </p>
-      
-      
-      <button className="w-40 h-10 rounded-xl bg-white text-black border border-black  text-sm relative z-20 mt-8">
-        Download
-      </button>
-      <button className="w-40 h-10 rounded-xl bg-white text-black border border-black  text-sm relative z-20 mt-8">
-        Download
       </button>
      
     </CardSpotlight>

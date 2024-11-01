@@ -7,10 +7,10 @@ import { WavyBackground } from './ui/wavy-background';
   
 const Notes = () => {
   return (
-    <div className='m-10'>
+    < >
         <NavbarDemo/>
-    <WavyBackground className="max-w-4xl mx-auto pb-40">
-    <CardSpotlight className="h-56 w-96">
+    <WavyBackground className="max-w-4xl mx-auto pb-40 flex gap-5">
+    <CardSpotlight className="h-56 w-76">
       <p className="text-xl font-bold relative z-20 mt-2 text-white">
         Digital Electronics
       </p>
@@ -18,9 +18,36 @@ const Notes = () => {
       <p className="text-neutral-300 mt-4 relative z-20 text-sm">
         It includes notes of Unit 1st and 2nd.
       </p>
+      
+      
+      <button className="w-40 h-10 rounded-xl bg-white text-black border border-black  text-sm relative z-20 mt-8">
+        Download Notes
+      </button>
+      <button className="w-40 h-10 rounded-xl bg-white text-black border border-black  text-sm relative z-20 mt-8">
+        Download syllabus
+      </button>
+     
+    </CardSpotlight>
+    <CardSpotlight className="h-56 w-76">
+      <p className="text-xl font-bold relative z-20 mt-2 text-white">
+        Digital Electronics
+      </p>
+      
+      <p className="text-neutral-300 mt-4 relative z-20 text-sm">
+        It includes notes of Unit 3rd and 4th.
+      </p>
+      
+      
+      <button className="w-40 h-10 rounded-xl bg-white text-black border border-black  text-sm relative z-20 mt-8">
+        Download
+      </button>
+      <button className="w-40 h-10 rounded-xl bg-white text-black border border-black  text-sm relative z-20 mt-8">
+        Download
+      </button>
+     
     </CardSpotlight>
     </WavyBackground>
-    </div>
+    </>
   )
 }
 const Step = ({ title }) => {

@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavbarDemo } from './Navbar'
 import { motion } from "framer-motion";
 import { CardSpotlight } from "./ui/card-spotlight";
 import { WavyBackground } from './ui/wavy-background';
   
 const Notes = () => {
+  const[title,setTitle] = useState("");
+  const[dis,setDis] = useState("");
+  const[file,setFile] = useState("")
   return (
     < >
         <NavbarDemo/>

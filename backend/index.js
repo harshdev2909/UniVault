@@ -4,6 +4,8 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import path from "path";
 
+import multer from "multer";
+
 import { connectDB } from "./db/connectDB.js";
 
 import authRoutes from "./routes/auth.route.js";
@@ -23,11 +25,25 @@ app.use("/api/auth", authRoutes);
 
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static(path.join(__dirname, "/frontend/dist")));
-
+	
 	app.get("*", (req, res) => {
 		res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
 	});
 }
+const storage = multer.diskStorage({
+	destination: function (req, file, cb) {
+	  cb(null, '.files')
+	},
+	filename: function (req, file, cb) {
+	  const uniqueSuffix = Date.now() 
+	  cb(null, uniqueSuffix+file.originalname)
+	}
+  })
+  
+  const upload = multer({ storage: storage })
+app.post('upload-files',upload.single('file'),async(req,res)=>{
+
+})
 
 app.listen(PORT, () => {
 	connectDB();

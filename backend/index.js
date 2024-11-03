@@ -9,7 +9,7 @@ import multer from "multer";
 import { connectDB } from "./db/connectDB.js";
 
 import authRoutes from "./routes/auth.route.js";
-
+import mongoose from "mongoose";
 dotenv.config();
 
 const app = express();
@@ -18,6 +18,7 @@ const __dirname = path.resolve();
 
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
+app.use('/files',express.static("files"))
 app.use(express.json()); // allows us to parse incoming requests:req.body
 app.use(cookieParser()); // allows us to parse incoming cookies
 
@@ -32,19 +33,35 @@ if (process.env.NODE_ENV === "production") {
 }
 const storage = multer.diskStorage({
 	destination: function (req, file, cb) {
-	  cb(null, '.files')
+	  cb(null, './files')
 	},
 	filename: function (req, file, cb) {
 	  const uniqueSuffix = Date.now() 
 	  cb(null, uniqueSuffix+file.originalname)
 	}
   })
-  
+// require("./models/pdf.js")
+import {pdf} from "./models/pdf.js"
   const upload = multer({ storage: storage })
-app.post('upload-files',upload.single('file'),async(req,res)=>{
-
+app.post('/upload-files',upload.single('file'),async(req,res)=>{
+	console.log(req.file)
+	const title = req.body.title;
+	const fileName = req.file.filename;
+	try{
+		await pdf.create({title:title,pdf:fileName})
+		res.send({status:ok})
+	}
+	catch(error){
+		res.json({status:error})
+	}
 })
-
+app.get('/get-files',async(req,res)=>{
+	try {
+		
+	} catch (error) {
+		
+	}
+})
 app.listen(PORT, () => {
 	connectDB();
 	console.log("Server is running on port: ", PORT);

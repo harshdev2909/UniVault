@@ -1,37 +1,50 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavbarDemo } from './Navbar'
 import { motion } from "framer-motion";
 import { CardSpotlight } from "./ui/card-spotlight";
 import { WavyBackground } from './ui/wavy-background';
+import axios from 'axios';
   
 const Notes = () => {
-  const[title,setTitle] = useState("");
-  const[dis,setDis] = useState("");
-  const[file,setFile] = useState("")
+  const[file,setFiles] = useState([])
+
+  useEffect(() => {
+    const fetchFiles = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/get-files'); // Adjust the URL if necessary
+            if (response.data.status === 'ok') {
+                setFiles(response.data.data);
+            } else {
+                setError('Failed to fetch files');
+            }
+        } catch (err) {
+            setError(err.message);
+        }
+    };
+
+    fetchFiles();
+}, []);
   return (
-    < >
-        <NavbarDemo/>
-    <WavyBackground className="max-w-4xl mx-auto pb-40 flex gap-5">
-    <CardSpotlight className="h-56 w-76">
-      <p className="text-xl font-bold relative z-20 mt-2 text-white">
-        Digital Electronics
-      </p>
-      
-      <p className="text-neutral-300 mt-4 relative z-20 text-sm">
-        It includes notes of Unit 1st and 2nd.
-      </p>
-      
-      
-      <button className="w-40 h-10 rounded-xl bg-white text-black border border-black  text-sm relative z-20 mt-8">
-        Download Notes
-      </button>
-      <button className="w-40 h-10 rounded-xl bg-white text-black border border-black  text-sm relative z-20 mt-8">
-        Download syllabus
-      </button>
-     
-    </CardSpotlight>
-    </WavyBackground>
-    </>
+    <>
+            <NavbarDemo />
+            <WavyBackground className="max-w-4xl mx-auto pb-40 flex gap-5 flex-wrap">
+                {/* {error && <p className="text-red-500"></p>} */}
+                {file.map((file) => (
+                    <CardSpotlight key={file._id} className="h-56 w-76 mb-5">
+                        <p className="text-xl font-bold relative z-20 mt-2 text-white">{file.title}</p>
+                        <p className="text-neutral-300 mt-4 relative z-20 text-sm">
+                            It includes notes of Unit 1st and 2nd.
+                        </p>
+                        <button className="w-40 h-10 rounded-xl bg-white text-black border border-black text-sm relative z-20 mt-8">
+                            Download Notes
+                        </button>
+                        <button className="w-40 h-10 rounded-xl bg-white text-black border border-black text-sm relative z-20 mt-8">
+                            Download Syllabus
+                        </button>
+                    </CardSpotlight>
+                ))}
+            </WavyBackground>
+        </>
   )
 }
 const Step = ({ title }) => {

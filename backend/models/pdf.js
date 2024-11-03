@@ -1,4 +1,3 @@
-// const mongoose = require('mongoose');
 import mongoose from "mongoose";
 
 const pdfSchema = new mongoose.Schema({
@@ -8,6 +7,6 @@ const pdfSchema = new mongoose.Schema({
     pdf:{
         type:String
     }
-},{collation:"pdfDetails"})
+},{ collation: { locale: 'en', strength: 2 } })
 
 export const pdf = mongoose.model("pdfDetails",pdfSchema);

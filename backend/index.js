@@ -55,13 +55,16 @@ app.post('/upload-files',upload.single('file'),async(req,res)=>{
 		res.json({status:error})
 	}
 })
-app.get('/get-files',async(req,res)=>{
+app.get('/get-files', async (req, res) => {
 	try {
-		
+		const data = await pdf.find({});
+		res.send({ status: "ok", data: data });
 	} catch (error) {
-		
+		console.error(error);
+		res.status(500).send({ status: "error", message: "Internal Server Error" });
 	}
-})
+});
+
 app.listen(PORT, () => {
 	connectDB();
 	console.log("Server is running on port: ", PORT);

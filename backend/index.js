@@ -48,7 +48,7 @@ app.post('/upload-files',upload.single('file'),async(req,res)=>{
 	const title = req.body.title;
 	const fileName = req.file.filename;
 	try{
-		await pdf.create({title:title,pdf:fileName})
+		await pdf.create({title:title,pdf:fileName});
 		res.send({status:ok})
 	}
 	catch(error){

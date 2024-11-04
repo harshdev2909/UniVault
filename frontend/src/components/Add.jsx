@@ -19,7 +19,9 @@ const Add = () => {
         e.preventDefault();
         const formData = new FormData();
         formData.append("title",value)
-        formData.append("file",files)
+        files.forEach(file => {
+            formData.append("file", file);
+        });
 
         try {
             const result = await axios.post('http://localhost:5000/upload-files', formData, {

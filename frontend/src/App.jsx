@@ -20,6 +20,7 @@ import Assignments from "./components/Assignments";
 import "./App.css";
 import { NavbarDemo } from "./components/Navbar";
 import Notes from "./components/Notes";
+import Add from "./components/Add";
 
 // protect routes that require authentication
 const ProtectedRoute = ({ children }) => {
@@ -118,6 +119,14 @@ function App() {
 					element={
 						<>
 							<Notes/>
+						</>
+					}
+				/>
+				<Route
+					path='/add'
+					element={
+						<>
+							<Add/>
 						</>
 					}
 				/>

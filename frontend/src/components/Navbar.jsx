@@ -26,6 +26,7 @@ function Navbar({
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink to="/notes">B.Tech 1st </HoveredLink>
             <HoveredLink href="/interface-design">B.Tech 2nd </HoveredLink>
+            <HoveredLink to="/add">Add Notes </HoveredLink>
             {/* <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
             <HoveredLink href="/branding">Branding</HoveredLink> */}
           </div>

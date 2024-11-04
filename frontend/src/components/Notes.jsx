@@ -24,6 +24,13 @@ const Notes = () => {
 
     fetchFiles();
 }, []);
+const BASE_URL = 'http://localhost:5000/files/';
+const openPdf = (pdfFilename) => {
+    const pdfUrl = `${BASE_URL}${pdfFilename}`; // Construct the full URL
+    console.log('Opening PDF:', pdfUrl); // Debugging
+    window.open(pdfUrl, '_blank'); // Open PDF in a new tab
+};
+
   return (
     <>
             <NavbarDemo />
@@ -35,10 +42,10 @@ const Notes = () => {
                         <p className="text-neutral-300 mt-4 relative z-20 text-sm">
                             It includes notes of Unit 1st and 2nd.
                         </p>
-                        <button className="w-40 h-10 rounded-xl bg-white text-black border border-black text-sm relative z-20 mt-8">
+                        <button onClick={() => openPdf(file.pdf)} className="w-40 h-10 rounded-xl bg-white text-black border border-black text-sm relative z-20 mt-8">
                             Download Notes
                         </button>
-                        <button className="w-40 h-10 rounded-xl bg-white text-black border border-black text-sm relative z-20 mt-8">
+                        <button className="w-40 h-10 rounded-xl bg-white text-black border  border-black text-sm relative z-20 mt-8">
                             Download Syllabus
                         </button>
                     </CardSpotlight>
@@ -76,3 +83,4 @@ const Step = ({ title }) => {
     );
   };
 export default Notes
+

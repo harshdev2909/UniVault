@@ -82,5 +82,5 @@ const Step = ({ title }) => {
       </svg>
     );
   };
-export default Notes
+export default Notes;
 

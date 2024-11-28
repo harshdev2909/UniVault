@@ -33,11 +33,11 @@ const openPdf = (pdfFilename) => {
 
   return (
     <>
-            <NavbarDemo />
-            <WavyBackground className="max-w-4xl mx-auto pb-40 flex gap-5 flex-wrap">
+      <NavbarDemo />
+            <div className="max-w-4xl mx-auto pb-40 flex mt-20 gap-5 flex-wrap">
                 {/* {error && <p className="text-red-500"></p>} */}
                 {file.map((file) => (
-                    <CardSpotlight key={file._id} className="h-56 w-76 mb-5">
+                    <CardSpotlight key={file._id} className="h-full w-76 mb-5 mt-15">
                         <p className="text-xl font-bold relative z-20 mt-2 text-white">{file.title}</p>
                         <p className="text-neutral-300 mt-4 relative z-20 text-sm">
                             It includes notes of Unit 1st and 2nd.
@@ -50,7 +50,7 @@ const openPdf = (pdfFilename) => {
                         </button>
                     </CardSpotlight>
                 ))}
-            </WavyBackground>
+            </div>
         </>
   )
 }

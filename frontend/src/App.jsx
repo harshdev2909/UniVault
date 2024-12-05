@@ -15,12 +15,12 @@ import { useAuthStore } from "./store/authStore";
 import { useEffect } from "react";
 
 import Check from "./components/Check";
-import Assignments from "./components/Assignments";
 
 import "./App.css";
 import { NavbarDemo } from "./components/Navbar";
 import Notes from "./components/Notes";
 import Add from "./components/Add";
+import Assignments from "./components/Assignments";
 
 // protect routes that require authentication
 const ProtectedRoute = ({ children }) => {
@@ -127,6 +127,14 @@ function App() {
 					element={
 						<>
 							<Add/>
+						</>
+					}
+				/>
+				<Route
+					path='/new'
+					element={
+						<>
+						<Assignments/>	
 						</>
 					}
 				/>

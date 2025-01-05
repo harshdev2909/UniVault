@@ -59,7 +59,7 @@ function App() {
 
 	return (
 		<div
-			className="bg-black"
+			className="bg-black items-center h-full w-full"
 		>
 			
 			<Routes>
